@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вокруг фото | Андрей Елисеев</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Вокруг фото" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="stylesheet" href="css/style.css">
+  
+  <script>
+            // Переключение темы и запуск слайдера
+
+            document.addEventListener("DOMContentLoaded", () => {
+            const body = document.body;
+            const switchInput = document.getElementById("theme-switch");
+            const caption = document.querySelector(".theme-caption");
+
+            // восстановление темы
+            const saved = localStorage.getItem("theme");
+            if (saved === "light") {
+                body.classList.remove("theme-dark");
+                body.classList.add("theme-light");
+                switchInput.checked = true;
+                if (caption) caption.textContent = caption.dataset.light;
+            } else {
+                body.classList.add("theme-dark");
+                if (caption) caption.textContent = caption.dataset.dark;
+            }
+
+            // обработчик переключателя
+            if (switchInput) {
+                switchInput.addEventListener("change", () => {
+                if (switchInput.checked) {
+                    body.classList.remove("theme-dark");
+                    body.classList.add("theme-light");
+                    localStorage.setItem("theme", "light");
+                    if (caption) caption.textContent = caption.dataset.light;
+                } else {
+                    body.classList.remove("theme-light");
+                    body.classList.add("theme-dark");
+                    localStorage.setItem("theme", "dark");
+                    if (caption) caption.textContent = caption.dataset.dark;
+                }
+                });
+            }
+
+            // простой слайдер в hero
+            const slides = Array.from(document.querySelectorAll(".hero-slide"));
+            if (slides.length > 1) {
+                let index = 0;
+                setInterval(() => {
+                slides[index].classList.remove("is-active");
+                index = (index + 1) % slides.length;
+                slides[index].classList.add("is-active");
+                }, 7000); // 7 секунд на кадр
+            }
+            });
+
+   </script>
+</head>
+<body class="theme-dark">
+<div class="page">
+
+  <!-- ШАПКА -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Вокруг&nbsp;фото</div>
+
+      <div class="header-right">
+        <a href="https://t.me/vokrug_photo" target="_blank" rel="noopener" class="header-link">
+          Telegram-канал
+        </a>
+
+        <div class="theme-toggle">
+          <span class="theme-label">Тема</span>
+          <input type="checkbox" id="theme-switch">
+          <label for="theme-switch" class="theme-switch"></label>
+          <span class="theme-caption" data-dark="тёмная" data-light="светлая">тёмная</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- HERO СО СЛАЙДЕРОМ -->
+    <section class="hero" id="top">
+      <div class="hero-slider">
+        <!-- подставь сюда свои файлы: лучше 3–5 сильных кадров -->
+        <div class="hero-slide is-active" style="background-image:url('img/hero/slide1.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('img/hero/slide2.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('img/hero/slide3.jpg');"></div>
+      </div>
+
+      <div class="hero-panel">
+        <p class="hero-kicker">Андрей Елисеев · Иркутская область</p>
+        <h1 class="hero-title">Вокруг фото</h1>
+        <p class="hero-text">
+          Я не фотограф, просто у меня есть фотоаппарат. Я просто много брожу —
+          и иногда нажимаю кнопку, когда свет вдруг становится особенным.
+        </p>
+        <p class="hero-text hero-text-secondary">
+          Здесь — кадры, которые хочется сохранить.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://t.me/vokrug_photo" target="_blank" rel="noopener" class="btn-primary">
+            Открыть Telegram-канал
+          </a>
+          <a href="#gallery" class="btn-ghost">
+            Пролистать кадры
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК ПРО АНДРЕЯ -->
+    <section class="section section-about">
+      <div class="container about-grid">
+        
+        <div class="about-text">
+          <h2>Кто за камерой</h2>
+          <p>
+            Меня зовут Андрей. Я живу в Иркутской области и люблю смотреть по сторонам:
+            как туман садится в лощины, как лампочки отражаются в воде, как появляются
+            первые звёзды.
+          </p>
+          <p>
+            Этот сайт и канал я веду не ради «портфолио», а чтобы было место,
+            где можно спокойно вернуться к этим состояниям: открыть, вдохнуть и вспомнить,
+            как было тихо.
+          </p>
+          <p>
+            Если захочется что-то написать или просто поделиться своими местами —
+            сделать это легче всего в Telegram.
+          </p>
+          <a href="https://t.me/vokrug_photo" target="_blank" rel="noopener" class="btn-link">
+            Написать в Telegram
+          </a>
+        </div>
+
+        <div class="about-photo">
+          <!-- твой «естественный» кадр -->
+          <img src="img/andrey/field.jpg"
+               alt="Андрей с камерой на природе, в Иркутской области">
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОДБОРКА КАДРОВ -->
+<section class="section section-frames" id="frames">
+  <div class="container">
+    <header class="section-header">
+      <div class="section-kicker">Несколько кадров «вокруг»</div>
+      <h2 class="section-title">Часть того, что попадает в канал</h2>
+      <p class="section-description">
+        Байкал, горы, туман, ночной город и маленькие детали, мимо которых легко пройти.
+      </p>
+    </header>
+
+    <div class="pinterest-grid">
+
+      <div class="pin">
+        <img src="img/thumbs/city-lights.png" alt="Ночной город у воды">
+        <span class="pin-label">Ночной город</span>
+      </div>
+
+      <div class="pin">
+        <img src="img/thumbs/orange-horizon.jpg" alt="Закат на окраине">
+        <span class="pin-label">Закат</span>
+      </div>
+
+      <div class="pin">
+        <img src="img/thumbs/wood-light.jpg" alt="Свет в окошке">
+        <span class="pin-label">Свет и тень</span>
+      </div>
+
+      <div class="pin">
+        <img src="img/thumbs/flower-macro.jpg" alt="Цветы крупным планом">
+        <span class="pin-label">Макро</span>
+      </div>
+
+      <div class="pin">
+        <img src="img/thumbs/mountain-ritual.jpg" alt="Священные места">
+        <span class="pin-label">Места</span>
+      </div>
+
+      <div class="pin">
+        <img src="img/thumbs/fog-river.jpg" alt="Туман над рекой">
+        <span class="pin-label">Туман</span>
+      </div>
+
+      <div class="pin">
+        <img src="img/thumbs/forest-macro.jpg" alt="Зелёные детали леса">
+        <span class="pin-label">Лес</span>
+      </div>
+
+      <div class="pin">
+        <img src="img/thumbs/fireworks-water.jpg" alt="Отражения огней в воде">
+        <span class="pin-label">Огни</span>
+      </div>
+
+      <div class="pin">
+        <img src="img/thumbs/lone-tree.jpg" alt="Одинокое дерево">
+        <span class="pin-label">Дерево</span>
+      </div>
+
+    </div>
+
+    <div class="frames-cta">
+      <a class="btn-main" href="https://t.me/vokrug_photo" target="_blank">Перейти в канал</a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- ПРОСТАЯ ФОРМА (по желанию) -->
+    <section class="section section-contact">
+      <div class="container contact-inner">
+        <div class="contact-text">
+          <h2>Если хочется откликнуться</h2>
+          <p>
+            Можно просто нажать кнопку «Написать в Telegram». А можно оставить
+            короткое сообщение здесь — оно уйдёт на почту, и Андрей ответит, когда будет связь.
+          </p>
+          <a href="https://t.me/vokrug_photo" target="_blank" rel="noopener" class="btn-link">
+            Написать в Telegram
+          </a>
+        </div>
+
+        <!-- пока mailto, потом можно повесить обработчик -->
+        <form class="contact-form" action="mailto:example@mail.ru" method="post" enctype="text/plain">
+          <label>
+            Имя
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            Почта
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            Сообщение
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn-primary">Отправить</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ПОДВАЛ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-title">Вокруг фото</div>
+        <div class="footer-copy">© <span id="year"></span> · Андрей Елисеев</div>
+      </div>
+
+      <div class="footer-tags">
+        <span class="tag">Байкал</span>
+        <span class="tag">горы</span>
+        <span class="tag">туман</span>
+        <span class="tag">ночной город</span>
+        <span class="tag">отражения</span>
+        <span class="tag">макро</span>
+      </div>
+
+      <a href="https://t.me/vokrug_photo" target="_blank" rel="noopener" class="footer-link">
+        Telegram-канал
+      </a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
