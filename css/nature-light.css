@@ -1,0 +1,192 @@
+:root {
+  --bg: #f5f3ef;
+  --fg: #111827;
+  --muted: #6b7280;
+}
+
+body {
+  background: #f5f3ef;
+}
+
+/* шапка */
+.site-header {
+  background: linear-gradient(to bottom, rgba(245,243,239,0.96), rgba(245,243,239,0.8));
+}
+
+/* hero фон */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/hero/photo.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(110%) contrast(108%);
+  opacity: 0.9;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(245,243,239,0.96) 0, rgba(245,243,239,0.7) 40%, transparent 80%);
+}
+.hero-inner {
+  color: #111827;
+}
+
+.btn-main {
+  background: #059669;
+  color: #ecfdf3;
+  border-color: #059669;
+}
+.btn-main:hover {
+  background: #047857;
+  border-color: #047857;
+}
+.btn-ghost {
+  color: var(--muted);
+}
+
+/* галерея */
+.gallery-item {
+  background: #000;
+}
+.gallery-label {
+  background: rgba(15,23,42,0.85);
+  color: #f9fafb;
+}
+
+/* CTA */
+.telegram-cta {
+  background: #ecfdf3;
+  border: 1px solid #bbf7d0;
+}
+.telegram-cta-title {
+  color: #15803d;
+}
+.telegram-cta-text {
+  color: #14532d;
+}
+
+/* story / themes */
+.story-text {
+  color: #4b5563;
+}
+.pill {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+}
+
+/* footer */
+.footer {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+}
+.footer a {
+  color: #4b5563;
+}
+.footer a:hover {
+  color: #111827;
+}
+
+
+/* --------------------------------------------------- */
+/*  HERO пересобран (как у Daniel Kordan, адаптация)   */
+/* --------------------------------------------------- */
+
+:root {
+    --bg: #EEECE7;          /* тёплый бумажный фон */
+    --fg: #1F1F1F;
+    --muted: #6D6D6D;
+}
+
+/* общий фон */
+body {
+    background: var(--bg);
+}
+
+/* фон слайдера + общий градиент */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(238,236,231,0.25) 0%,
+        rgba(238,236,231,0.65) 40%,
+        rgba(238,236,231,1) 100%
+    );
+    pointer-events: none;
+}
+
+/* карточка под текстом hero */
+.hero-inner {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(16px);
+    padding: 2.4rem 2.8rem;
+    border-radius: 24px;
+    max-width: 520px;
+    color: #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+/* текст в hero */
+.hero-title {
+    color: #1C1C1C;
+}
+.hero-subtitle,
+.hero-tagline {
+    color: #4A4A4A;
+}
+
+/* кнопки */
+.btn-main {
+    background: #4CAF6A;
+    color: #fff;
+    border: none;
+}
+.btn-main:hover {
+    background: #3F8F59;
+}
+.btn-ghost {
+    color: #4A4A4A;
+}
+
+/* блок "кто за камерой" */
+.section-person {
+    background: #F5F2EE;
+    padding: 3rem 1.5rem 4rem;
+    border-radius: 12px;
+}
+
+/* галерея */
+.section-frames {
+    background: #EEECE7;
+}
+.gallery-item {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-radius: 10px;
+}
+.gallery-label {
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+}
+
+/* переключатель темы */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+.theme-toggle span {
+    font-size: .75rem;
+    color: var(--muted);
+}
+.switch {
+    background: #d7d7d7;
+}
+#themeSwitch:checked + .switch {
+    background: #4CAF6A;
+}

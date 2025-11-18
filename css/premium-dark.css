@@ -1,0 +1,98 @@
+:root {
+  --bg: #050505;
+  --fg: #f5f5f5;
+  --muted: #9ca3af;
+}
+
+/* фон страницы */
+body {
+  background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+}
+
+/* шапка */
+.site-header {
+  background: linear-gradient(to bottom, rgba(5,5,5,0.9), rgba(5,5,5,0.2));
+}
+
+/* hero фон */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../img/hero/photo.jpg"); /* твой закат */
+  background-size: cover;
+  background-position: center;
+  filter: saturate(115%) contrast(110%);
+  opacity: 0.9;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(0,0,0,0.1), transparent 55%),
+              linear-gradient(to top, rgba(0,0,0,0.8) 0, rgba(0,0,0,0.15) 55%);
+}
+.hero-inner {
+  color: #f9fafb;
+}
+
+/* кнопки */
+.btn-main {
+  background: transparent;
+  color: #f9fafb;
+  border-color: rgba(249,250,251,0.6);
+}
+.btn-main:hover {
+  border-color: #ffffff;
+  background: rgba(0,0,0,0.7);
+}
+.btn-ghost {
+  color: var(--muted);
+}
+.btn-ghost:hover {
+  color: #e5e7eb;
+}
+
+/* галерея */
+.gallery-item {
+  background: #020617;
+}
+.gallery-label {
+  background: rgba(0,0,0,0.72);
+  color: #e5e7eb;
+}
+
+/* CTA */
+.telegram-cta {
+  background: #020617;
+  border: 1px solid rgba(75,85,99,0.7);
+}
+.telegram-cta-title {
+  color: var(--muted);
+}
+.telegram-cta-text {
+  color: var(--muted);
+}
+
+/* story / themes */
+.story-text {
+  color: var(--muted);
+}
+.pill {
+  border: 1px solid rgba(107,114,128,0.9);
+  background: #050505;
+  color: #e5e7eb;
+}
+
+/* footer */
+.footer {
+  background: #050505;
+  color: var(--muted);
+  border-top: 1px solid rgba(31,41,55,0.9);
+}
+.footer a {
+  color: var(--muted);
+}
+.footer a:hover {
+  color: #e5e7eb;
+}
